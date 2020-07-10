@@ -7,12 +7,33 @@ public class Main {
 		numbers.addLast(20);
 		numbers.addLast(30);
 		numbers.addLast(40);
+
+		ArrayList.ListIterator li = numbers.listIterator();
+		while(li.hasNext()) {
+			int number = (int)li.next();
+			if(number == 30) {
+				li.remove();
+			}
+		}
+		System.out.println(numbers);
+		
+//		ArrayList.ListIterator li = numbers.listIterator();
+//		while(li.hasNext()) {
+//			int number = (int)li.next();
+//			if(number == 30) {
+//				li.add(35);
+//			}
+//		}
+//		System.out.println(numbers);
 		
 		
 		
+//		System.out.println(li.next());
+//		System.out.println(li.next());
+//		System.out.println(li.previous());
+//		System.out.println(li.hasPrevious());
 		
-		
-		
+//		반복적인 사용을 위한 객체, Iterator패턴
 //		ArrayList.ListIterator li = numbers.listIterator();
 //		while(li.hasNext()) {
 //		System.out.println(li.next());
