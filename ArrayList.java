@@ -1,7 +1,7 @@
 package list.arraylist.implementation;
 
 public class ArrayList {
-	private int size = 0; // ¸î°³ÀÇ µ¥ÀÌÅÍ°¡ ¸®½ºÆ®¿¡ µé¾îÀÖ´ÂÁö
+	private int size = 0; // ëª‡ê°œì˜ ë°ì´í„°ê°€ ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ìˆëŠ”ì§€
 	private Object[] elementData = new Object[100];
 
 	public boolean addFirst(Object element) {
@@ -33,7 +33,7 @@ public class ArrayList {
 			return false;
 		}
 	}
-	// toString()À» ±¸ÇöÇÏ¸é °´Ã¼¸¦ ¹®ÀÚ·Î Ãâ·ÂÇÏµµ·Ï ¾à¼ÓµÇ¾îÀÖ´Ù.
+	// toString()ì„ êµ¬í˜„í•˜ë©´ ê°ì²´ë¥¼ ë¬¸ìë¡œ ì¶œë ¥í•˜ë„ë¡ ì•½ì†ë˜ì–´ìˆë‹¤.
 	public String toString() {
 		String str = "[";
 		for(int i=0; i<size; i++) {
@@ -59,12 +59,12 @@ public class ArrayList {
 	public Object removeLast() {
 		return remove(size-1);	
 	}
-	// Æ¯Á¤ÇÑ À§Ä¡ÀÇ µ¥ÀÌÅÍ¸¦ ºü¸£°Ô °¡Á®¿Â´Ù.
-	// arraylistÀÇ ÀåÁ¡
+	// íŠ¹ì •í•œ ìœ„ì¹˜ì˜ ë°ì´í„°ë¥¼ ë¹ ë¥´ê²Œ ê°€ì ¸ì˜¨ë‹¤.
+	// arraylistì˜ ì¥ì 
 	public Object get(int index) {
 		return elementData[index];
 	}
-	// ±»ÀÌ size¸Ş¼Òµå¸¦ ¸¸µå´Â ÀÌÀ¯´Â ¿ÜºÎ¿¡¼­ size¸¦ Á¢±Ù ¸øÇÏµµ·ÏÇÏ±â À§ÇÔ.
+	// êµ³ì´ sizeë©”ì†Œë“œë¥¼ ë§Œë“œëŠ” ì´ìœ ëŠ” ì™¸ë¶€ì—ì„œ sizeë¥¼ ì ‘ê·¼ ëª»í•˜ë„ë¡í•˜ê¸° ìœ„í•¨.
 	public int size() {
 		return size;
 	}
@@ -90,6 +90,19 @@ public class ArrayList {
 //			nextIndex++;
 //			return returnData;
 			return elementData[nextIndex++];
+		}
+		public boolean hasPrevious() {
+			return nextIndex > 0;
+		}
+		public Object previous() {
+			return elementData[--nextIndex];
+		}
+		public void add(Object element) {
+			ArrayList.this.add(nextIndex++, element);
+		}
+		public void remove() {
+			ArrayList.this.remove(nextIndex-1);
+			nextIndex--;
 		}
 	}
 }
