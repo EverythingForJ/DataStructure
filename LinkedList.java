@@ -34,7 +34,7 @@ public class LinkedList {
 			size++;
 		}
 	}
-	// 리턴값이 객체임로 외부에서 사용되면 안된다.
+	// 리턴값이 객체 외부에서 사용되면 안된다.
 	Node node(int index) {
 		Node x = head;
 		for(int i = 0; i < index; i++) {
